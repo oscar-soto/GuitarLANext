@@ -1,4 +1,6 @@
 import Head from "next/head";
+import Footer from "./footer";
+import Header from "./header";
 
 const Layout = ({children, title = '', description = ''}) => {
   return (
@@ -7,7 +9,10 @@ const Layout = ({children, title = '', description = ''}) => {
         <title>{`GuitarLA - ${title}`}</title>
         <meta name="description" content={description} />
       </Head>
+
+      <Header />
       {children}
+      <Footer />
     </>
   )
 }
