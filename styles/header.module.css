@@ -28,7 +28,8 @@
   padding: .5rem;
   transition: all .3s;
 }
-.navigation a:hover {
+.navigation a:hover,
+.active {
   background-color: var(--primary);
 }
 
