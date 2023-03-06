@@ -1,5 +1,6 @@
 import Layout from '@/components/layout';
 import Guitar from '@/components/guitar';
+import styles from '../styles/grid.module.css';
 
 const Tienda = ({ guitars }) => {
   return (
@@ -10,9 +11,11 @@ const Tienda = ({ guitars }) => {
       <main className="container">
         <h1 className="heading">Nuestra Colección</h1>
 
-        {guitars?.map((guitar) => (
-          <Guitar guitar={guitar.attributes} key={guitar.id} />
-        ))}
+        <div className={styles.grid}>
+          {guitars?.map((guitar) => (
+            <Guitar guitar={guitar.attributes} key={guitar.id} />
+          ))}
+        </div>
       </main>
     </Layout>
   );

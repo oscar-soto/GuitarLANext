@@ -1,11 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from '../styles/guitarras.module.css';
 
 const Guitar = ({ guitar }) => {
   const { description, guitar_imagen, name, price, url } = guitar;
 
   return (
-    <div>
+    <div className={styles.guitarra}>
       <Image
         src={guitar_imagen.data.attributes.formats.medium.url}
         alt={`Imagen de la guitarra ${name}`}
@@ -13,11 +14,11 @@ const Guitar = ({ guitar }) => {
         height={400}
       />
 
-      <div>
+      <div className={styles.contenido}>
         <h3>{name}</h3>
-        <p>{description}</p>
-        <p>${price}</p>
-        <Link href={`/guitarras/${url}`}>
+        <p className={styles.descripcion}>{description}</p>
+        <p className={styles.precio}>${price}</p>
+        <Link href={`/guitarras/${url}`} className={styles.enlace}>
           Ver producto
         </Link>
       </div>
