@@ -9,7 +9,7 @@ const Nosotros = () => {
       description={'Sobre nosotros, GuitarLA, tienda de música'}
     >
       <main className="container">
-        <h2 className="heading">Nosotros</h2>
+        <h1 className="heading">Nosotros</h1>
 
         <div className={styles.content}>
           <Image

@@ -8,8 +8,8 @@ const Footer = () => {
         <nav className={styles.navigation}>
           <Link href="/">Inicio</Link>
           <Link href="/nosotros">Nosotros</Link>
-          <Link href="/blog">Blog</Link>
           <Link href="/tienda">Tienda</Link>
+          <Link href="/blog">Blog</Link>
         </nav>
 
         <p className={styles.copyright}>
