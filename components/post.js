@@ -6,7 +6,7 @@ import { fomartDate } from '@/utils/helpers';
 const Post = ({ post }) => {
   const { content, imagen, title, url, publishedAt } = post;
   return (
-    <article className="">
+    <article>
       <Image
         src={imagen.data.attributes.formats.medium.url}
         alt={`Imagen blog ${title}`}
@@ -21,7 +21,7 @@ const Post = ({ post }) => {
 
         <p className={styles.resumen}>{content}</p>
 
-        <Link href={url} className={styles.enlace}>
+        <Link href={`/blog/${url}`} className={styles.enlace}>
           Leer Post
         </Link>
       </div>
