@@ -1,10 +1,12 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from '@/styles/blog.module.css';
+import { fomartDate } from '@/utils/helpers';
 
 const Post = ({ post }) => {
   const { content, imagen, title, url, publishedAt } = post;
   return (
-    <article>
+    <article className="">
       <Image
         src={imagen.data.attributes.formats.medium.url}
         alt={`Imagen blog ${title}`}
@@ -12,11 +14,16 @@ const Post = ({ post }) => {
         height={300}
       />
 
-      <div>
+      <div className={styles.contenido}>
         <h3>{title}</h3>
-        <p>{publishedAt}</p>
-        <p>{content}</p>
-        <Link href={url}>Leer Post</Link>
+
+        <p className={styles.fecha}>{fomartDate(publishedAt)}</p>
+
+        <p className={styles.resumen}>{content}</p>
+
+        <Link href={url} className={styles.enlace}>
+          Leer Post
+        </Link>
       </div>
     </article>
   );
