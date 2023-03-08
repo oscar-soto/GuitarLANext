@@ -1,13 +1,26 @@
 import Layout from '@/components/layout';
 import Image from 'next/image';
 import styles from '@/styles/guitarras.module.css';
+import { useState } from 'react';
 
 const Product = ({ guitar }) => {
   const { name, description, guitar_imagen, price } = guitar[0].attributes;
+
+  const [qty, setQty] = useState(0);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (qty < 1) {
+      alert('Cantidad no valida');
+      return;
+    }
+
+    // Built a object
+  };
+
   return (
-    <Layout
-      title={`Guitar ${name}`}
-    >
+    <Layout title={`Guitar ${name}`}>
       <div className={styles.guitarra}>
         <Image
           src={guitar_imagen.data.attributes.url}
@@ -20,6 +33,21 @@ const Product = ({ guitar }) => {
           <h3>{name}</h3>
           <p className={styles.descripcion}>{description}</p>
           <p className={styles.precio}>${price}</p>
+
+          <form onSubmit={handleSubmit} className={styles.formulario}>
+            <label htmlFor="qty">Cantidad:</label>
+
+            <select onChange={(e) => setQty(Number(e.target.value))} id="qty">
+              <option value="0">-- Seleccione --</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+
+            <input type="submit" value="Agregar al carrito" />
+          </form>
         </div>
       </div>
     </Layout>
