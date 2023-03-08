@@ -7,6 +7,8 @@
   padding: 3rem 0;
 }
 .summary {
+  position: sticky;
+  top: 3rem;
   background-color: #F9FAFB;
   padding: 3rem;
   border-radius: 1rem;
