@@ -1,0 +1,19 @@
+.content {
+  display: grid;
+  align-items: flex-start;
+  gap: 5rem;
+}
+.cart {
+  padding: 3rem 0;
+}
+.summary {
+  background-color: #F9FAFB;
+  padding: 3rem;
+  border-radius: 1rem;
+}
+
+@media (min-width: 768px) {
+  .content {
+    grid-template-columns: 3fr 2fr;
+  }
+}
