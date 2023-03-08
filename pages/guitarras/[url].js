@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from '@/styles/guitarras.module.css';
 import { useState } from 'react';
 
-const Product = ({ guitar }) => {
+const Product = ({ guitar, addCart }) => {
   const { name, description, guitar_imagen, price } = guitar[0].attributes;
 
   const [qty, setQty] = useState(0);
@@ -17,6 +17,16 @@ const Product = ({ guitar }) => {
     }
 
     // Built a object
+    const guitarSelected = {
+      id: guitar[0].id,
+      image: guitar_imagen.data.attributes.url,
+      name,
+      price,
+      qty
+    }
+
+    // passing the information to context
+    addCart(guitarSelected)
   };
 
   return (
