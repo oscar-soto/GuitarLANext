@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Layout from '@/components/layout';
 import styles from '@/styles/carrito.module.css';
 
-const Carrito = ({ cart, updateQty }) => {
+const Carrito = ({ cart, updateQty, deleteProduct }) => {
   const [total, setTotal] = useState(0);
   useEffect(() => {
     const calculateTotal = cart.reduce(
@@ -12,7 +12,7 @@ const Carrito = ({ cart, updateQty }) => {
       0
     );
 
-    setTotal(calculateTotal)
+    setTotal(calculateTotal);
   }, [cart]);
 
   return (
@@ -69,6 +69,14 @@ const Carrito = ({ cart, updateQty }) => {
                         Subtotal: $<span>{product.qty * product.price}</span>
                       </p>
                     </div>
+
+                    <button
+                      className={styles.delete}
+                      type="button"
+                      onClick={() => deleteProduct(product.id)}
+                    >
+                      x
+                    </button>
                   </div>
                 ))}
           </div>
